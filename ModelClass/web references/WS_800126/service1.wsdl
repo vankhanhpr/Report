@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Add_NMP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phonenumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_NMPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Add_NMPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Remove_NMP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phonenumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Remove_NMPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Remove_NMPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendsms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sdt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="infor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendsmsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sendsmsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="SmsMT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sdt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="infor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmsMTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmsMTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SMSMO8x83">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phonenumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SMSMO8x83Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SMSMO8x83Result" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Accstatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="taikhoan" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccstatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccstatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsByGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsByGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsByGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Add_NMPSoapIn">
+    <wsdl:part name="parameters" element="tns:Add_NMP" />
+  </wsdl:message>
+  <wsdl:message name="Add_NMPSoapOut">
+    <wsdl:part name="parameters" element="tns:Add_NMPResponse" />
+  </wsdl:message>
+  <wsdl:message name="Remove_NMPSoapIn">
+    <wsdl:part name="parameters" element="tns:Remove_NMP" />
+  </wsdl:message>
+  <wsdl:message name="Remove_NMPSoapOut">
+    <wsdl:part name="parameters" element="tns:Remove_NMPResponse" />
+  </wsdl:message>
+  <wsdl:message name="sendsmsSoapIn">
+    <wsdl:part name="parameters" element="tns:sendsms" />
+  </wsdl:message>
+  <wsdl:message name="sendsmsSoapOut">
+    <wsdl:part name="parameters" element="tns:sendsmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="sendsmsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmsMTSoapIn">
+    <wsdl:part name="parameters" element="tns:SmsMT" />
+  </wsdl:message>
+  <wsdl:message name="SmsMTSoapOut">
+    <wsdl:part name="parameters" element="tns:SmsMTResponse" />
+  </wsdl:message>
+  <wsdl:message name="SMSMO8x83SoapIn">
+    <wsdl:part name="parameters" element="tns:SMSMO8x83" />
+  </wsdl:message>
+  <wsdl:message name="SMSMO8x83SoapOut">
+    <wsdl:part name="parameters" element="tns:SMSMO8x83Response" />
+  </wsdl:message>
+  <wsdl:message name="AccstatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Accstatus" />
+  </wsdl:message>
+  <wsdl:message name="AccstatusSoapOut">
+    <wsdl:part name="parameters" element="tns:AccstatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsByGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSmsByGroup" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsByGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add_NMPHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="phonenumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Add_NMPHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Remove_NMPHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="phonenumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Remove_NMPHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="sendsmsHttpGetIn">
+    <wsdl:part name="sdt" type="s:string" />
+    <wsdl:part name="infor" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="sendsmsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SmsMTHttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="pass" type="s:string" />
+    <wsdl:part name="sdt" type="s:string" />
+    <wsdl:part name="infor" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SmsMTHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SMSMO8x83HttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="phonenumber" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="messageid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SMSMO8x83HttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="AccstatusHttpGetIn">
+    <wsdl:part name="taikhoan" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AccstatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsByGroupHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="groupname" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsByGroupHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Add_NMPHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="phonenumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Add_NMPHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Remove_NMPHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="phonenumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Remove_NMPHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="sendsmsHttpPostIn">
+    <wsdl:part name="sdt" type="s:string" />
+    <wsdl:part name="infor" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="sendsmsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SmsMTHttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="pass" type="s:string" />
+    <wsdl:part name="sdt" type="s:string" />
+    <wsdl:part name="infor" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SmsMTHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SMSMO8x83HttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="phonenumber" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="messageid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SMSMO8x83HttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="AccstatusHttpPostIn">
+    <wsdl:part name="taikhoan" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AccstatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsByGroupHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="groupname" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsByGroupHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="Add_NMP">
+      <wsdl:input message="tns:Add_NMPSoapIn" />
+      <wsdl:output message="tns:Add_NMPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove_NMP">
+      <wsdl:input message="tns:Remove_NMPSoapIn" />
+      <wsdl:output message="tns:Remove_NMPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendsms">
+      <wsdl:input message="tns:sendsmsSoapIn" />
+      <wsdl:output message="tns:sendsmsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmsMT">
+      <wsdl:input message="tns:SmsMTSoapIn" />
+      <wsdl:output message="tns:SmsMTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SMSMO8x83">
+      <wsdl:input message="tns:SMSMO8x83SoapIn" />
+      <wsdl:output message="tns:SMSMO8x83SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Accstatus">
+      <wsdl:input message="tns:AccstatusSoapIn" />
+      <wsdl:output message="tns:AccstatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsByGroup">
+      <wsdl:input message="tns:SendSmsByGroupSoapIn" />
+      <wsdl:output message="tns:SendSmsByGroupSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpGet">
+    <wsdl:operation name="Add_NMP">
+      <wsdl:input message="tns:Add_NMPHttpGetIn" />
+      <wsdl:output message="tns:Add_NMPHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove_NMP">
+      <wsdl:input message="tns:Remove_NMPHttpGetIn" />
+      <wsdl:output message="tns:Remove_NMPHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendsms">
+      <wsdl:input message="tns:sendsmsHttpGetIn" />
+      <wsdl:output message="tns:sendsmsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmsMT">
+      <wsdl:input message="tns:SmsMTHttpGetIn" />
+      <wsdl:output message="tns:SmsMTHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SMSMO8x83">
+      <wsdl:input message="tns:SMSMO8x83HttpGetIn" />
+      <wsdl:output message="tns:SMSMO8x83HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Accstatus">
+      <wsdl:input message="tns:AccstatusHttpGetIn" />
+      <wsdl:output message="tns:AccstatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsByGroup">
+      <wsdl:input message="tns:SendSmsByGroupHttpGetIn" />
+      <wsdl:output message="tns:SendSmsByGroupHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpPost">
+    <wsdl:operation name="Add_NMP">
+      <wsdl:input message="tns:Add_NMPHttpPostIn" />
+      <wsdl:output message="tns:Add_NMPHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove_NMP">
+      <wsdl:input message="tns:Remove_NMPHttpPostIn" />
+      <wsdl:output message="tns:Remove_NMPHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendsms">
+      <wsdl:input message="tns:sendsmsHttpPostIn" />
+      <wsdl:output message="tns:sendsmsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmsMT">
+      <wsdl:input message="tns:SmsMTHttpPostIn" />
+      <wsdl:output message="tns:SmsMTHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SMSMO8x83">
+      <wsdl:input message="tns:SMSMO8x83HttpPostIn" />
+      <wsdl:output message="tns:SMSMO8x83HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Accstatus">
+      <wsdl:input message="tns:AccstatusHttpPostIn" />
+      <wsdl:output message="tns:AccstatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsByGroup">
+      <wsdl:input message="tns:SendSmsByGroupHttpPostIn" />
+      <wsdl:output message="tns:SendSmsByGroupHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add_NMP">
+      <soap:operation soapAction="http://tempuri.org/Add_NMP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove_NMP">
+      <soap:operation soapAction="http://tempuri.org/Remove_NMP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendsms">
+      <soap:operation soapAction="http://tempuri.org/sendsms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:sendsmsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmsMT">
+      <soap:operation soapAction="http://tempuri.org/SmsMT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SMSMO8x83">
+      <soap:operation soapAction="http://tempuri.org/SMSMO8x83" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Accstatus">
+      <soap:operation soapAction="http://tempuri.org/Accstatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsByGroup">
+      <soap:operation soapAction="http://tempuri.org/SendSmsByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add_NMP">
+      <soap12:operation soapAction="http://tempuri.org/Add_NMP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove_NMP">
+      <soap12:operation soapAction="http://tempuri.org/Remove_NMP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendsms">
+      <soap12:operation soapAction="http://tempuri.org/sendsms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:sendsmsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmsMT">
+      <soap12:operation soapAction="http://tempuri.org/SmsMT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SMSMO8x83">
+      <soap12:operation soapAction="http://tempuri.org/SMSMO8x83" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Accstatus">
+      <soap12:operation soapAction="http://tempuri.org/Accstatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsByGroup">
+      <soap12:operation soapAction="http://tempuri.org/SendSmsByGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpGet" type="tns:Service1HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Add_NMP">
+      <http:operation location="/Add_NMP" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove_NMP">
+      <http:operation location="/Remove_NMP" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendsms">
+      <http:operation location="/sendsms" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmsMT">
+      <http:operation location="/SmsMT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SMSMO8x83">
+      <http:operation location="/SMSMO8x83" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Accstatus">
+      <http:operation location="/Accstatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsByGroup">
+      <http:operation location="/SendSmsByGroup" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpPost" type="tns:Service1HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Add_NMP">
+      <http:operation location="/Add_NMP" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove_NMP">
+      <http:operation location="/Remove_NMP" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendsms">
+      <http:operation location="/sendsms" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmsMT">
+      <http:operation location="/SmsMT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SMSMO8x83">
+      <http:operation location="/SMSMO8x83" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Accstatus">
+      <http:operation location="/Accstatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsByGroup">
+      <http:operation location="/SendSmsByGroup" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://10.70.28.200:8080/service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://10.70.28.200:8080/service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpGet" binding="tns:Service1HttpGet">
+      <http:address location="http://10.70.28.200:8080/service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpPost" binding="tns:Service1HttpPost">
+      <http:address location="http://10.70.28.200:8080/service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

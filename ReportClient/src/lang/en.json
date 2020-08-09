@@ -1,0 +1,53 @@
+{
+  "common": {
+    "select_lang": "Language",
+    "VI": "Vietnamese",
+    "EN": "English",
+    "CNTT_CENTER": "CENTER OF INFORMATION AND TECHNOLOGY",
+    "HOME": "Home",
+    "USER": "User"
+  },
+  "login": {
+    "TITLE": "Login to website",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "CHANGE_PASS": "Change pass",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "REMEMBER_PASS": "Remember password"
+  },
+  "home": {
+    "REQUEST_LIST": "Request list",
+    "DATE_TO_DATE": "From date to date",
+    "START_DATE": "Start date",
+    "END_DATE": "End date",
+    "LAST_WEEK": "Last week",
+    "LAST_MONTH": "Last month",
+    "LAST_3_MONTHS": "Last 3 months",
+    "SELECT_STAGE": "Select stage",
+    "REQUEST": "Request time",
+    "DESIGN": "Design time",
+    "BUILD_WEBSITE_TEST": "Build website test",
+    "BUILD_WEBSITE_OFFICIAL": "Build website official"
+  },
+  "detail": {
+    "CUSTOMER": "Customer",
+    "DATE_CREATED": "Date created",
+    "PRIORITY": "Priority",
+    "STATUS": "Status",
+    "CURRENT_STAGE": "Current stage",
+    "EXECUTION_UNIT": "Execution unit",
+    "DESCRIPTION": "Description"
+  },
+  "SUCCESS": "Success",
+  "FAILED": "Failed",
+  "REQUEST_FAILED_WITH_STATUS_CODE_500": "500 Internal Server Error.",
+  "REQUEST_FAILED_WITH_STATUS_CODE_401": "401 Unauthorized error, you are not login.",
+  "USERNAME_IS_NOT_BLANKED": "Username is not blanked.",
+  "USERNAME_IS_VALID": "Username is valid.",
+  "PASSWORD_IS_NOT_BLANKED": "Password is not blanked.",
+  "EMPTY_CHECK": "You did not choose any thing.",
+  "CHECK_ONE_TO_UPDATE": "Check one to update.",
+  "CHECK_ONE_TO_DELETE": "Check one to delete.",
+  "DO_NOT_CHOOSE_ADMIN": "Do not choose user admin."
+}

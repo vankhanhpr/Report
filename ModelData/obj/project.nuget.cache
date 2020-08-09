@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "JNleZiBPDzVcOu3Uyd9O/tBqWR1RzTxhiNgzb0YFigjezQPVdOjupy/Q8WAoB6lzDL+6FKrTZiX2rwPCP+9nXw==",
+  "success": true,
+  "projectFilePath": "E:\\vnpt\\DA\\DA_qlyc\\ReportTesting\\ModelData\\ModelData.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\minhtri.hcm\\.nuget\\packages\\dapper\\2.0.35\\dapper.2.0.35.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\minhtri.hcm\\.nuget\\packages\\oracle.manageddataaccess\\19.6.0\\oracle.manageddataaccess.19.6.0.nupkg.sha512",
+    "C:\\Users\\minhtri.hcm\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.7.0\\system.reflection.emit.ilgeneration.4.7.0.nupkg.sha512",
+    "C:\\Users\\minhtri.hcm\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Oracle.ManagedDataAccess 19.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Oracle.ManagedDataAccess",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
+}

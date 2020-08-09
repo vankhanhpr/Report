@@ -1,0 +1,53 @@
+{
+  "common": {
+    "select_lang": "Ngôn ngữ",
+    "VI": "Tiếng Việt",
+    "EN": "Tiếng Anh",
+    "CNTT_CENTER": "TRUNG TÂM CÔNG NGHỆ THÔNG TIN",
+    "HOME": "Trang chủ",
+    "USER": "Người dùng"
+  },
+  "login": {
+    "TITLE": "Đăng nhập vào website",
+    "LOGIN": "Đăng nhập",
+    "LOGOUT": "Đăng xuất",
+    "CHANGE_PASS": "Đổi mật khẩu",
+    "USERNAME": "Tên đăng nhập",
+    "PASSWORD": "Mật khẩu",
+    "REMEMBER_PASS": "Ghi lại mật khẩu"
+  },
+  "home": {
+    "REQUEST_LIST": "Danh sách yêu cầu",
+    "DATE_TO_DATE": "Từ ngày tới ngày",
+    "START_DATE": "Ngày bắt đầu",
+    "END_DATE": "Ngày kết thúc",
+    "LAST_WEEK": "Tuần gần nhất",
+    "LAST_MONTH": "Tháng gần nhất",
+    "LAST_3_MONTHS": "3 tháng gần nhất",
+    "SELECT_STAGE": "Chọn giai đoạn",
+    "REQUEST": "Khảo sát yêu cầu",
+    "DESIGN": "Thiết kế hóa đơn",
+    "BUILD_WEBSITE_TEST": "Dựng website test",
+    "BUILD_WEBSITE_OFFICIAL": "Dựng website chính thức"
+  },
+  "detail": {
+    "CUSTOMER": "Khách hàng",
+    "DATE_CREATED": "Ngày tạo",
+    "PRIORITY": "Độ ưu tiên",
+    "STATUS": "Trạng thái",
+    "CURRENT_STAGE": "Giai đoạn hiện tại",
+    "EXECUTION_UNIT": "Đơn vị thực hiện",
+    "DESCRIPTION": "Ghi chú"
+  },
+  "SUCCESS": "Thành công",
+  "FAILED": "Không thành công",
+  "REQUEST_FAILED_WITH_STATUS_CODE_500": "Thông tin đầu vào tồn tại không hợp lệ.",
+  "REQUEST_FAILED_WITH_STATUS_CODE_401": "Lỗi xác thực 401, Bạn chưa đăng nhập.",
+  "USERNAME_IS_NOT_BLANKED": "Tên đăng nhập không được để trống.",
+  "USERNAME_IS_VALID": "Tên đăng nhập đã tồn tại.",
+  "PASSWORD_IS_NOT_BLANKED": "Mật khẩu không được để trống.",
+  "EMPTY_CHECK": "Bạn chưa chọn dòng nào.",
+  "CHECK_ONE_TO_UPDATE": "Chọn một dòng để sửa.",
+  "CHECK_ONE_TO_DELETE": "Chọn một dòng để xóa.",
+  "DO_NOT_CHOOSE_ADMIN": "Không được chọn tài khoản admin."
+}

@@ -1,0 +1,128 @@
+:root {
+  --fs-detail: 18px;
+  --fs_title: 20px;
+  --color: #333333;
+}
+
+@media only screen and (min-width: 0px) {
+  .k {
+    position: relative;
+  }
+
+  .wf {
+    width: 100%;
+  }
+
+  .main-form {
+    width: 100%;
+    float: left;
+  }
+
+  /* ---------Header--------- */
+  .tab-head {
+    width: 100%;
+    border: 0.5px solid rgba(51, 51, 51, 0.05);
+    padding: 20px;
+  }
+
+  .text-header {
+    color: var(--color);
+    font-size: var(--fs_title);
+    font-weight: 600;
+    text-align: left;
+    font-size: 25px;
+  }
+
+  .main-container {
+    padding: 10px;
+  }
+
+  /* ---------Card---------- */
+  .card {
+    padding: 5px;
+    border: 0.5px solid rgba(51, 51, 51, 0.2);
+    border-radius: 3px;
+  }
+
+  .card-title {
+    background-color: rgba(13, 131, 235, 0.856);
+    padding: 10px;
+    font-weight: 400;
+  }
+
+  .card-title span {
+    color: white;
+  }
+
+  .card-container {
+    background-color: rgba(255, 255, 255, 1);
+    overflow: auto;
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }
+
+  .demonstration {
+    padding-bottom: 10px;
+  }
+
+  @media only screen and (min-width: 901px) {
+    .flex-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding-bottom: 20px;
+    }
+
+    .col-sum {
+      padding-inline-start: 20px;
+      padding-inline-end: 20px;
+      font-weight: 600;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .part {
+      padding: 0 10px 20px 10px;
+    }
+
+    .col-sum {
+      padding-inline-end: 20px;
+      font-weight: 600;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .date-time-picker {
+      width: 100%;
+    }
+  }
+
+  /* -------Table------ */
+  .table {
+    width: 100%;
+    border: 1px solid rgb(166, 198, 230);
+  }
+
+  .table-title {
+    background-color: #fafafa;
+    color: #a8a8a8;
+  }
+
+  .table tr {
+    background-color: #ffdaa3;
+  }
+
+  .high {
+    background-color: rgba(255, 50, 20, 0.5);
+    color: white;
+  }
+
+  .table th {
+    border: 1px solid rgb(223, 232, 241, 1);
+    font-weight: 400;
+  }
+
+  .pagination {
+    float: right;
+  }
+}

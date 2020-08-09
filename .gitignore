@@ -1,0 +1,6 @@
+.vs/
+ModelClass/bin/
+ModelClass/obj/
+Report/obj/
+Report/bin/
+ReportClient/node_modules/
