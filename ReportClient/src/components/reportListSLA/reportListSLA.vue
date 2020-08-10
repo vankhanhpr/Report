@@ -1,8 +1,8 @@
 <template>
   <div class="k main-form">
-    <div class="k tab-head">
+    <!-- <div class="k tab-head">
       <span class="k text-header">{{ $t("common.REPORT_LIST_SLA") }}</span>
-    </div>
+    </div>-->
 
     <div class="k wf main-container">
       <div class="k wf card">
@@ -37,24 +37,24 @@
               <th class="table-title">{{ this.$i18n.t(title.NGAY_TAO) }}</th>
               <th class="table-title">{{ this.$i18n.t(title.TEN_KHACH_HANG) }}</th>
               <th class="table-title">{{ this.$i18n.t(title.TEN_DO_UU_TIEN) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU_KSYC) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC_KSYC) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.SLA_KSYC) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_SLA_KSYC_CHITIET) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.DANH_GIA_SLA_KSYC) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU_TKHD) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC_TKHD) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.SLA_TKHD) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_SLA_TKHD_CHITIET) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.DANH_GIA_SLA_TKHD) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU_DWST) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC_DWST) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.SLA_DWST) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.DANH_GIA_SLA_DWST) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU_DWSCT) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC_DWSCT) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.SLA_DWSCT) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.DANH_GIA_SLA_DWSCT) }}</th>
+              <th class="color-gold">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU_KSYC) }}</th>
+              <th class="color-gold">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC_KSYC) }}</th>
+              <th class="color-gold">{{ this.$i18n.t(title.SLA_KSYC) }}</th>
+              <th class="color-gold">{{ this.$i18n.t(title.THOI_GIAN_SLA_KSYC_CHITIET) }}</th>
+              <th class="color-gold">{{ this.$i18n.t(title.DANH_GIA_SLA_KSYC) }}</th>
+              <th class="color-pink">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU_TKHD) }}</th>
+              <th class="color-pink">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC_TKHD) }}</th>
+              <th class="color-pink">{{ this.$i18n.t(title.SLA_TKHD) }}</th>
+              <th class="color-pink">{{ this.$i18n.t(title.THOI_GIAN_SLA_TKHD_CHITIET) }}</th>
+              <th class="color-pink">{{ this.$i18n.t(title.DANH_GIA_SLA_TKHD) }}</th>
+              <th class="color-green">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU_DWST) }}</th>
+              <th class="color-green">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC_DWST) }}</th>
+              <th class="color-green">{{ this.$i18n.t(title.SLA_DWST) }}</th>
+              <th class="color-green">{{ this.$i18n.t(title.DANH_GIA_SLA_DWST) }}</th>
+              <th class="color-blue">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU_DWSCT) }}</th>
+              <th class="color-blue">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC_DWSCT) }}</th>
+              <th class="color-blue">{{ this.$i18n.t(title.SLA_DWSCT) }}</th>
+              <th class="color-blue">{{ this.$i18n.t(title.DANH_GIA_SLA_DWSCT) }}</th>
             </tr>
             <!-- <tr class="table-title">
               <th class="table-title">
@@ -97,20 +97,36 @@
               <th>{{ item.THOI_GIAN_KET_THUC_KSYC }}</th>
               <th>{{ item.SLA_KSYC }}</th>
               <th>{{ item.THOI_GIAN_SLA_KSYC_CHITIET }}</th>
-              <th>{{ item.DANH_GIA_SLA_KSYC }}</th>
+              <th
+                v-if="item.DANH_GIA_SLA_KSYC === 'Trễ hạn'"
+                v-bind:class="{high: true}"
+              >{{ item.DANH_GIA_SLA_KSYC }}</th>
+              <th v-else-if="item.DANH_GIA_SLA_KSYC !== 'Trễ hạn'">{{ item.DANH_GIA_SLA_KSYC }}</th>
               <th>{{ item.THOI_GIAN_BAT_DAU_TKHD }}</th>
               <th>{{ item.THOI_GIAN_KET_THUC_TKHD }}</th>
               <th>{{ item.SLA_TKHD }}</th>
               <th>{{ item.THOI_GIAN_SLA_TKHD_CHITIET }}</th>
-              <th>{{ item.DANH_GIA_SLA_TKHD }}</th>
+              <th
+                v-if="item.DANH_GIA_SLA_TKHD === 'Trễ hạn'"
+                v-bind:class="{high: true}"
+              >{{ item.DANH_GIA_SLA_TKHD }}</th>
+              <th v-else-if="item.DANH_GIA_SLA_TKHD !== 'Trễ hạn'">{{ item.DANH_GIA_SLA_TKHD }}</th>
               <th>{{ item.THOI_GIAN_BAT_DAU_DWST }}</th>
               <th>{{ item.THOI_GIAN_KET_THUC_DWST }}</th>
               <th>{{ item.SLA_DWST }}</th>
-              <th>{{ item.DANH_GIA_SLA_DWST }}</th>
+              <th
+                v-if="item.DANH_GIA_SLA_DWST === 'Trễ hạn'"
+                v-bind:class="{high: true}"
+              >{{ item.DANH_GIA_SLA_DWST }}</th>
+              <th v-else-if="item.DANH_GIA_SLA_DWST !== 'Trễ hạn'">{{ item.DANH_GIA_SLA_DWST }}</th>
               <th>{{ item.THOI_GIAN_BAT_DAU_DWSCT }}</th>
               <th>{{ item.THOI_GIAN_KET_THUC_DWSCT }}</th>
               <th>{{ item.SLA_DWSCT }}</th>
-              <th>{{ item.DANH_GIA_SLA_DWSCT }}</th>
+              <th
+                v-if="item.DANH_GIA_SLA_DWSCT === 'Trễ hạn'"
+                v-bind:class="{high: true}"
+              >{{ item.DANH_GIA_SLA_DWSCT }}</th>
+              <th v-else-if="item.DANH_GIA_SLA_DWSCT !== 'Trễ hạn'">{{ item.DANH_GIA_SLA_DWSCT }}</th>
             </tr>
           </table>
         </div>
@@ -198,7 +214,7 @@ export default {
         DANH_GIA_SLA_DWSCT: "detail.DANH_GIA_SLA_DWSCT",
       },
       isHigh: true,
-      month: "",
+      month: new Date(),
       pickMonth: "home.PICK_MONTH",
       inputDate: "",
       inputCustomer: "",
@@ -238,16 +254,12 @@ export default {
     // },
     async getReportSLA() {
       $(".loading").show(100);
-      setTimeout(function () {
-        $(".loading").hide(100);
-      }, 30000);
       var self = this;
       this.reportList = [];
       var perPage = this.perPage;
       var v_ID_NHOM_GIAI_DOAN = 18;
-      var currentTime = new Date();
-      var v_YEAR = Number(moment(currentTime).format("YYYY"));
-      var v_MONTH = Number(moment(currentTime).format("MM")) - 2;
+      var v_YEAR = Number(moment(this.month).format("YYYY"));
+      var v_MONTH = Number(moment(this.month).format("MM"));
       var data = {
         v_ID_NHOM_GIAI_DOAN,
         v_YEAR,
@@ -295,6 +307,7 @@ export default {
             Vue.$toast.error(
               this.$i18n.te(err) ? this.$i18n.t(err) : response.data.message
             );
+            $(".loading").hide(100);
           }
         })
         .catch((error) => {
@@ -302,6 +315,7 @@ export default {
           Vue.$toast.error(
             this.$i18n.te(err) ? this.$i18n.t(err) : error.message
           );
+          $(".loading").hide(100);
         });
     },
     getCurrentPage(currentPage, pageOfItems) {

@@ -1,8 +1,8 @@
 <template>
   <div class="k main-form">
-    <div class="k tab-head">
+    <!-- <div class="k tab-head">
       <span class="k text-header">{{ $t("home.REQUEST_LIST") }}</span>
-    </div>
+    </div>-->
 
     <div class="k wf main-container">
       <div class="k wf card">
@@ -246,9 +246,6 @@ export default {
   methods: {
     getDasboard() {
       $(".loading").show(100);
-      setTimeout(function () {
-        $(".loading").hide(100);
-      }, 30000);
       var self = this;
       this.reportList = [];
       var perPage = this.perPage;
@@ -293,6 +290,7 @@ export default {
             Vue.$toast.error(
               this.$i18n.te(err) ? this.$i18n.t(err) : response.data.message
             );
+            $(".loading").hide(100);
           }
         })
         .catch((error) => {
@@ -300,6 +298,7 @@ export default {
           Vue.$toast.error(
             this.$i18n.te(err) ? this.$i18n.t(err) : error.message
           );
+          $(".loading").hide(100);
         });
     },
     getCurrentPage(currentPage, pageOfItems) {

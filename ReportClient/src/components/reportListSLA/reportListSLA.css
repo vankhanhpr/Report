@@ -1,7 +1,23 @@
 :root {
-  --fs-detail: 18px;
-  --fs_title: 20px;
+  --fs-detail: 16px;
+  --fs_title: 25px;
   --color: #333333;
+}
+
+.color-gold {
+  background-color: rgba(255, 215, 0, 1);
+}
+
+.color-pink {
+  background-color: rgb(237, 129, 247);
+}
+
+.color-green {
+  background-color: lime;
+}
+
+.color-blue {
+  background-color: lightskyblue;
 }
 
 @media only screen and (min-width: 0px) {
@@ -26,8 +42,6 @@
   }
 
   .text-header {
-    color: var(--color);
-    font-size: var(--fs_title);
     font-weight: 600;
     text-align: left;
     font-size: 25px;
@@ -105,12 +119,11 @@
   }
 
   .table-title {
-    background-color: #fafafa;
-    color: #a8a8a8;
+    background-color: lightcyan;
   }
 
   .table tr {
-    background-color: #ffdaa3;
+    background-color: white;
   }
 
   .high {
@@ -126,6 +139,7 @@
   .pagination {
     float: right;
   }
+
   /*loading*/
   .loading {
     position: fixed;

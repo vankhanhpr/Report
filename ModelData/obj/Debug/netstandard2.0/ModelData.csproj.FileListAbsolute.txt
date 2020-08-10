@@ -46,3 +46,16 @@ D:\vnpt\Report\ModelData\obj\Debug\netstandard2.0\ModelData.csproj.CoreCompileIn
 D:\vnpt\Report\ModelData\obj\Debug\netstandard2.0\ModelData.csproj.CopyComplete
 D:\vnpt\Report\ModelData\obj\Debug\netstandard2.0\ModelData.dll
 D:\vnpt\Report\ModelData\obj\Debug\netstandard2.0\ModelData.pdb
+E:\vnpt\DA\DA_qlyc\Report\ModelData\bin\Debug\netstandard2.0\ModelData.deps.json
+E:\vnpt\DA\DA_qlyc\Report\ModelData\bin\Debug\netstandard2.0\ModelData.dll
+E:\vnpt\DA\DA_qlyc\Report\ModelData\bin\Debug\netstandard2.0\ModelData.pdb
+E:\vnpt\DA\DA_qlyc\Report\ModelData\bin\Debug\netstandard2.0\ModelClass.dll
+E:\vnpt\DA\DA_qlyc\Report\ModelData\bin\Debug\netstandard2.0\ModelClass.pdb
+E:\vnpt\DA\DA_qlyc\Report\ModelData\bin\Debug\netstandard2.0\ModelClass.dll.config
+E:\vnpt\DA\DA_qlyc\Report\ModelData\obj\Debug\netstandard2.0\ModelData.csprojAssemblyReference.cache
+E:\vnpt\DA\DA_qlyc\Report\ModelData\obj\Debug\netstandard2.0\ModelData.AssemblyInfoInputs.cache
+E:\vnpt\DA\DA_qlyc\Report\ModelData\obj\Debug\netstandard2.0\ModelData.AssemblyInfo.cs
+E:\vnpt\DA\DA_qlyc\Report\ModelData\obj\Debug\netstandard2.0\ModelData.csproj.CoreCompileInputs.cache
+E:\vnpt\DA\DA_qlyc\Report\ModelData\obj\Debug\netstandard2.0\ModelData.csproj.CopyComplete
+E:\vnpt\DA\DA_qlyc\Report\ModelData\obj\Debug\netstandard2.0\ModelData.dll
+E:\vnpt\DA\DA_qlyc\Report\ModelData\obj\Debug\netstandard2.0\ModelData.pdb
