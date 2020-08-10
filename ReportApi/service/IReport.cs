@@ -8,6 +8,7 @@ namespace REPORT.service
         dynamic execureStoreProcedure(int test);
         dynamic getReportDasboard(ReportRequest rq);
         dynamic getReportTongYeuCau(ReportRequest rq);
+        dynamic getListReportSLA(ReportRequest rq);
         dynamic TestSql();
     }
 }

@@ -42,7 +42,7 @@ namespace REPORT.controllers
         }
 
         [Route("api/report/getReportTongYeuCau")]
-        [HttpGet]
+        [HttpPost]
         public DataRespond GetReportTongYeuCau(ReportRequest rq)
         {
             DataRespond data = new DataRespond();
@@ -50,6 +50,26 @@ namespace REPORT.controllers
             {
                 data.success = true;
                 data.data = m_report.getReportTongYeuCau(rq);
+                data.message = "susscess";
+            }
+            catch (Exception e)
+            {
+                data.success = false;
+                data.message = e.Message;
+                data.error = e;
+            }
+            return data;
+        }
+
+        [Route("api/report/getListReportSLA")]
+        [HttpPost]
+        public DataRespond GetListReportSLA(ReportRequest rq)
+        {
+            DataRespond data = new DataRespond();
+            try
+            {
+                data.success = true;
+                data.data = m_report.getListReportSLA(rq);
                 data.message = "susscess";
             }
             catch (Exception e)

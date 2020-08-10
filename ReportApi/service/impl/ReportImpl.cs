@@ -100,7 +100,7 @@ namespace REPORT.service.impl
             if (conn.State == ConnectionState.Open)
             {
 
-                var query = "PKG_YEU_CAU.sp_GetReportDashboard";
+                var query = "PKG_CNTT.sp_GetReportDashboard";
                 result = SqlMapper.Query(conn, query, param: dyParam, commandType: CommandType.StoredProcedure);
             }
             return result;
@@ -125,7 +125,33 @@ namespace REPORT.service.impl
             }
             if (conn.State == ConnectionState.Open)
             {
-                var query = "PKG_YEU_CAU.sp_GetReportTongYeuCau";
+                var query = "PKG_CNTT.sp_GetReportTongYeuCau";
+                result = SqlMapper.Query(conn, query, param: dyParam, commandType: CommandType.StoredProcedure);
+            }
+            return result;
+        }
+
+        public dynamic getListReportSLA(ReportRequest rq)
+        {
+            object result = null;
+            var dyParam = new OracleDynamicParameters();
+            /*
+             * Truyền biến nếu có
+             * gồm tên biến, biến input và output
+             */
+            dyParam.Add("v_ID_NHOM_GIAI_DOAN", OracleDbType.Int16, ParameterDirection.Input, rq.v_ID_NHOM_GIAI_DOAN);
+            dyParam.Add("v_YEAR", OracleDbType.Int16, ParameterDirection.Input, rq.v_YEAR);
+            dyParam.Add("v_MONTH", OracleDbType.Int16, ParameterDirection.Input, rq.v_MONTH);
+            dyParam.Add("out_Param", OracleDbType.RefCursor, ParameterDirection.Output);
+            string connString = new ConnectionString().returnConnection();
+            OracleConnection conn = new OracleConnection(connString);
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            if (conn.State == ConnectionState.Open)
+            {
+                var query = "PKG_CNTT.sp_Report_SLA";
                 result = SqlMapper.Query(conn, query, param: dyParam, commandType: CommandType.StoredProcedure);
             }
             return result;

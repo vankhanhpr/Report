@@ -487,24 +487,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KhanhNguyenIT\\.nuget\\packages\\": {},
+    "C:\\Users\\minhtri.hcm\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ASP.NET\\ReportVersion1\\ModelData\\ModelData.csproj",
+      "projectUniqueName": "D:\\vnpt\\Report\\ModelData\\ModelData.csproj",
       "projectName": "ModelData",
-      "projectPath": "D:\\ASP.NET\\ReportVersion1\\ModelData\\ModelData.csproj",
-      "packagesPath": "C:\\Users\\KhanhNguyenIT\\.nuget\\packages\\",
-      "outputPath": "D:\\ASP.NET\\ReportVersion1\\ModelData\\obj\\",
+      "projectPath": "D:\\vnpt\\Report\\ModelData\\ModelData.csproj",
+      "packagesPath": "C:\\Users\\minhtri.hcm\\.nuget\\packages\\",
+      "outputPath": "D:\\vnpt\\Report\\ModelData\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\KhanhNguyenIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\minhtri.hcm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -516,8 +519,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "D:\\ASP.NET\\ReportVersion1\\ModelClass\\ModelClass.csproj": {
-              "projectPath": "D:\\ASP.NET\\ReportVersion1\\ModelClass\\ModelClass.csproj"
+            "D:\\vnpt\\Report\\ModelClass\\ModelClass.csproj": {
+              "projectPath": "D:\\vnpt\\Report\\ModelClass\\ModelClass.csproj"
             }
           }
         }
@@ -555,10 +558,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -567,7 +576,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'EntityFramework 6.1.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "message": "Package 'EntityFramework 6.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
       "libraryId": "EntityFramework",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"
@@ -577,7 +586,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Oracle.ManagedDataAccess 19.6.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "message": "Package 'Oracle.ManagedDataAccess 19.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
       "libraryId": "Oracle.ManagedDataAccess",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"

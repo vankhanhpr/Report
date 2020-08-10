@@ -33,3 +33,16 @@ D:\ASP.NET\ReportVersion1\ModelData\obj\Debug\netstandard2.0\ModelData.AssemblyI
 D:\ASP.NET\ReportVersion1\ModelData\obj\Debug\netstandard2.0\ModelData.csproj.CopyComplete
 D:\ASP.NET\ReportVersion1\ModelData\obj\Debug\netstandard2.0\ModelData.dll
 D:\ASP.NET\ReportVersion1\ModelData\obj\Debug\netstandard2.0\ModelData.pdb
+D:\vnpt\Report\ModelData\bin\Debug\netstandard2.0\ModelData.deps.json
+D:\vnpt\Report\ModelData\bin\Debug\netstandard2.0\ModelData.dll
+D:\vnpt\Report\ModelData\bin\Debug\netstandard2.0\ModelData.pdb
+D:\vnpt\Report\ModelData\bin\Debug\netstandard2.0\ModelClass.dll
+D:\vnpt\Report\ModelData\bin\Debug\netstandard2.0\ModelClass.pdb
+D:\vnpt\Report\ModelData\bin\Debug\netstandard2.0\ModelClass.dll.config
+D:\vnpt\Report\ModelData\obj\Debug\netstandard2.0\ModelData.csprojAssemblyReference.cache
+D:\vnpt\Report\ModelData\obj\Debug\netstandard2.0\ModelData.AssemblyInfoInputs.cache
+D:\vnpt\Report\ModelData\obj\Debug\netstandard2.0\ModelData.AssemblyInfo.cs
+D:\vnpt\Report\ModelData\obj\Debug\netstandard2.0\ModelData.csproj.CoreCompileInputs.cache
+D:\vnpt\Report\ModelData\obj\Debug\netstandard2.0\ModelData.csproj.CopyComplete
+D:\vnpt\Report\ModelData\obj\Debug\netstandard2.0\ModelData.dll
+D:\vnpt\Report\ModelData\obj\Debug\netstandard2.0\ModelData.pdb
