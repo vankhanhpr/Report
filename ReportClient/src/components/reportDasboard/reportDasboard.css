@@ -101,6 +101,7 @@
   .table {
     width: 100%;
     border: 1px solid rgb(166, 198, 230);
+    width: max-content;
   }
 
   .table-title {
@@ -124,5 +125,17 @@
 
   .pagination {
     float: right;
+  }
+  /*loading*/
+  .loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000000;
+    opacity: 0.8;
+    background: url("../../assets/img/loading.svg") center no-repeat #fff;
+    background-size: 60px;
   }
 }

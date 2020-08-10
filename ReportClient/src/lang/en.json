@@ -5,7 +5,8 @@
     "EN": "English",
     "CNTT_CENTER": "CENTER OF INFORMATION AND TECHNOLOGY",
     "HOME": "Home",
-    "USER": "User"
+    "USER": "User",
+    "REPORT_LIST_SLA": "Report list SLA"
   },
   "login": {
     "TITLE": "Login to website",
@@ -19,6 +20,7 @@
   "home": {
     "REQUEST_LIST": "Request list",
     "DATE_TO_DATE": "From date to date",
+    "PICK_MONTH": "Pick a month",
     "START_DATE": "Start date",
     "END_DATE": "End date",
     "LAST_WEEK": "Last week",
@@ -37,7 +39,25 @@
     "STATUS": "Status",
     "CURRENT_STAGE": "Current stage",
     "EXECUTION_UNIT": "Execution unit",
-    "DESCRIPTION": "Description"
+    "DESCRIPTION": "Description",
+    "THOI_GIAN_BAT_DAU_KSYC": "KSYC begin time",
+    "THOI_GIAN_KET_THUC_KSYC": "KSYC end time",
+    "SLA_KSYC": "SLA KSYC",
+    "THOI_GIAN_SLA_KSYC_CHITIET": "KSYC time details",
+    "DANH_GIA_SLA_KSYC": "review KSYC",
+    "THOI_GIAN_BAT_DAU_TKHD": "TKHD begin time",
+    "THOI_GIAN_KET_THUC_TKHD": "TKHD end time",
+    "SLA_TKHD": "SLA TKHD",
+    "THOI_GIAN_SLA_TKHD_CHITIET": "TKHD time details",
+    "DANH_GIA_SLA_TKHD": "review TKHD",
+    "THOI_GIAN_BAT_DAU_DWST": "DWST begin time",
+    "THOI_GIAN_KET_THUC_DWST": "DWST end time",
+    "SLA_DWST": "SLA DWST",
+    "DANH_GIA_SLA_DWST": "review DWST",
+    "THOI_GIAN_BAT_DAU_DWSCT": "DWSCT begin time",
+    "THOI_GIAN_KET_THUC_DWSCT": "DWSCT end time",
+    "SLA_DWSCT": "SLA DWSCT",
+    "DANH_GIA_SLA_DWSCT": "review DWSCT"
   },
   "SUCCESS": "Success",
   "FAILED": "Failed",

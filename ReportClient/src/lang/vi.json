@@ -5,7 +5,8 @@
     "EN": "Tiếng Anh",
     "CNTT_CENTER": "TRUNG TÂM CÔNG NGHỆ THÔNG TIN",
     "HOME": "Trang chủ",
-    "USER": "Người dùng"
+    "USER": "Người dùng",
+    "REPORT_LIST_SLA": "Danh sách SLA"
   },
   "login": {
     "TITLE": "Đăng nhập vào website",
@@ -19,6 +20,7 @@
   "home": {
     "REQUEST_LIST": "Danh sách yêu cầu",
     "DATE_TO_DATE": "Từ ngày tới ngày",
+    "PICK_MONTH": "Chọn tháng",
     "START_DATE": "Ngày bắt đầu",
     "END_DATE": "Ngày kết thúc",
     "LAST_WEEK": "Tuần gần nhất",
@@ -37,7 +39,25 @@
     "STATUS": "Trạng thái",
     "CURRENT_STAGE": "Giai đoạn hiện tại",
     "EXECUTION_UNIT": "Đơn vị thực hiện",
-    "DESCRIPTION": "Ghi chú"
+    "DESCRIPTION": "Ghi chú",
+    "THOI_GIAN_BAT_DAU_KSYC": "Thời gian bắt đầu KSYC",
+    "THOI_GIAN_KET_THUC_KSYC": "Thời gian kết thúc KSYC",
+    "SLA_KSYC": "SLA KSYC",
+    "THOI_GIAN_SLA_KSYC_CHITIET": "SLA KSYC chi tiết",
+    "DANH_GIA_SLA_KSYC": "Đánh giá KSYC",
+    "THOI_GIAN_BAT_DAU_TKHD": "Thời gian bắt đầu TKHD",
+    "THOI_GIAN_KET_THUC_TKHD": "Thời gian kết thúc TKHD",
+    "SLA_TKHD": "SLA TKHD",
+    "THOI_GIAN_SLA_TKHD_CHITIET": "SLA TKHD chi tiết",
+    "DANH_GIA_SLA_TKHD": "Đánh giá TKHD",
+    "THOI_GIAN_BAT_DAU_DWST": "Thời gian bắt đầu DWST",
+    "THOI_GIAN_KET_THUC_DWST": "Thời gian kết thúc DWST",
+    "SLA_DWST": "SLA DWST",
+    "DANH_GIA_SLA_DWST": "Đánh giá DWST",
+    "THOI_GIAN_BAT_DAU_DWSCT": "Thời gian bắt đầu DWSCT",
+    "THOI_GIAN_KET_THUC_DWSCT": "Thời gian kết thúc DWSCT",
+    "SLA_DWSCT": "SLA DWSCT",
+    "DANH_GIA_SLA_DWSCT": "Đánh giá DWSCT"
   },
   "SUCCESS": "Thành công",
   "FAILED": "Không thành công",

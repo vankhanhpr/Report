@@ -13,39 +13,40 @@
           @click="modalShow = true"
           data-toggle="modal"
           data-target="#exampleModal"
-        >
-          {{ $t("login.LOGIN") }}
-        </button>
+        >{{ $t("login.LOGIN") }}</button>
         <div class="border-tab-user" v-if="islogin">
           <span class="k name-user">
             <i class="fa fa-user-secret"></i>
             {{ username }}
           </span>
           <div class="form-text-logout">
-            <span class="k text_logout" v-on:click="signout()">{{
+            <span class="k text_logout" v-on:click="signout()">
+              {{
               $t("login.LOGOUT")
-            }}</span>
+              }}
+            </span>
             <span
               class="k text_changelanguage"
               v-on:click="showFormLanguage()"
-              >{{ $t("common.select_lang") }}</span
-            >
+            >{{ $t("common.select_lang") }}</span>
             <span
               class="k text_changelanguage text-logout"
               @click="modalChangePass = true"
-              >{{ $t("login.CHANGE_PASS") }}</span
-            >
+            >{{ $t("login.CHANGE_PASS") }}</span>
           </div>
         </div>
       </div>
       <div class="h wf topnav" id="myTopnav">
         <span></span>
-        <a href="#home" @click="selectComponent = 'homeComponent'">{{
-          $t("common.HOME")
-        }}</a>
-        <a href="#user" @click="selectComponent = 'userComponent'">{{
-          $t("common.USER")
-        }}</a>
+        <a
+          href="#reportDasboard"
+          @click="selectComponent = 'reportDasboardComponent'"
+        >{{ $t("common.HOME") }}</a>
+        <a
+          href="#reportListSLA"
+          @click="selectComponent = 'reportListSLAComponent'"
+        >{{ $t("common.REPORT_LIST_SLA") }}</a>
+        <a href="#user" @click="selectComponent = 'userComponent'">{{ $t("common.USER") }}</a>
 
         <a href="#" class="icon" @click="clickFunction()">
           <i class="fa fa-bars"></i>
@@ -59,9 +60,9 @@
 
     <div class="h wf footer">
       <div class="h wf footer-title">
-        <div class="footer-copyright text-center py-3 text-white">
-          © 2020 copyright: {{ $t("common.CNTT_CENTER") }}
-        </div>
+        <div
+          class="footer-copyright text-center py-3 text-white"
+        >© 2020 copyright: {{ $t("common.CNTT_CENTER") }}</div>
       </div>
     </div>
     <notifications group="foo-success" position="bottom right" :speed="500" />
@@ -72,12 +73,7 @@
       </div>
     </b-modal>
     <!-- Language -->
-    <b-modal
-      v-model="modalLanguage"
-      ref="my-modal"
-      hide-footer
-      title="Select Language"
-    >
+    <b-modal v-model="modalLanguage" ref="my-modal" hide-footer title="Select Language">
       <div class="modal-dialog">
         <button @click="setLangNew('vi')">{{ $t("common.VI") }}</button>
         <button @click="setLangNew('en')">{{ $t("common.EN") }}</button>
@@ -95,7 +91,8 @@ import $ from "jquery";
 
 import user from "../user/user";
 import login from "../login/login";
-import home from "../home/home";
+import reportDasboard from "../reportDasboard/reportDasboard";
+import reportListSLA from "../reportListSLA/reportListSLA";
 import reponsitoryfactory from "../../service/factory/reponsitoryfactory";
 const userReponsitory = reponsitoryfactory.get("user");
 
@@ -106,11 +103,11 @@ export default {
       modalShow: false,
       modalShow1: true,
       modalLanguage: false,
-      selectComponent: "homeComponent",
+      selectComponent: "reportDasboardComponent",
       isActive: false,
       user: {},
       islogin: false,
-      username: ""
+      username: "",
     };
   },
   created() {
@@ -130,7 +127,7 @@ export default {
       var self = this;
       self.modalLanguage = true;
     },
-    setLangNew: function(lang) {
+    setLangNew: function (lang) {
       this.$store.dispatch("setLangNew", lang);
     },
     getTokenByLocal() {
@@ -169,7 +166,7 @@ export default {
     },
     async getUserById(id) {
       var self = this;
-      await userReponsitory.getById(id).then(function(response) {
+      await userReponsitory.getById(id).then(function (response) {
         if (response.data.success) {
           self.username = response.data.data.username;
           self.islogin = true;
@@ -184,19 +181,20 @@ export default {
       this.modalShow = true;
       this.islogin = false;
       //this.show_login =true;
-    }
+    },
   },
   //format date
   filters: {
-    moment: function(date) {
+    moment: function (date) {
       return moment(date).format("MMMM Do YYYY, h:mm:ss a");
-    }
+    },
   },
   components: {
     loginComponent: login,
     userComponent: user,
-    homeComponent: home
-  }
+    reportDasboardComponent: reportDasboard,
+    reportListSLAComponent: reportListSLA,
+  },
 };
 </script>
 

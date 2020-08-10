@@ -37,7 +37,7 @@
         <div class="k wf card-container">
           <table class="table">
             <tr class="table-title">
-              <th class="table-title">{{ this.$i18n.t(title.NGAY_TAO) }}</th>
+              <th class="table-title">{{ this.$i18n.t(title.NGAY_BAT_DAU) }}</th>
               <th class="table-title">{{ this.$i18n.t(title.TEN_KHACH_HANG) }}</th>
               <th class="table-title">{{ this.$i18n.t(title.TEN_DO_UU_TIEN) }}</th>
               <th class="table-title">{{ this.$i18n.t(title.THUC_HIEN) }}</th>
@@ -81,10 +81,8 @@
               <th
                 v-if="item.TEN_DO_UU_TIEN === 'cao'"
                 v-bind:class="{ high: isHigh }"
-              >{{ moment(item.NGAY_TAO).format("DD/MM/YYYY hh:mm") }}</th>
-              <th
-                v-else-if="item.TEN_DO_UU_TIEN !== 'cao'"
-              >{{ moment(item.NGAY_TAO).format("DD/MM/YYYY hh:mm") }}</th>
+              >{{ item.NGAY_BAT_DAU }}</th>
+              <th v-else-if="item.TEN_DO_UU_TIEN !== 'cao'">{{ item.NGAY_BAT_DAU }}</th>
               <th
                 v-if="item.TEN_DO_UU_TIEN === 'cao'"
                 v-bind:class="{ high: isHigh }"
@@ -122,10 +120,12 @@
         ></pagination>
       </div>
     </div>
+    <div class="loading"></div>
   </div>
 </template>
 <script>
 import Vue from "vue";
+import $ from "jquery";
 import moment from "moment";
 import { removeSpace } from "../../utils/common";
 import responsitories from "../../service/factory/reponsitoryfactory";
@@ -133,7 +133,7 @@ const reportResponsitories = responsitories.get("report");
 import pagination from "../pagination/pagination";
 
 export default {
-  name: "Home",
+  name: "ReportDasboard",
   data() {
     return {
       sum: [
@@ -172,7 +172,7 @@ export default {
         },
       ],
       title: {
-        NGAY_TAO: "detail.DATE_CREATED",
+        NGAY_BAT_DAU: "detail.DATE_CREATED",
         TEN_KHACH_HANG: "detail.CUSTOMER",
         TEN_DO_UU_TIEN: "detail.PRIORITY",
         THUC_HIEN: "detail.STATUS",
@@ -245,6 +245,10 @@ export default {
   },
   methods: {
     getDasboard() {
+      $(".loading").show(100);
+      setTimeout(function () {
+        $(".loading").hide(100);
+      }, 30000);
       var self = this;
       this.reportList = [];
       var perPage = this.perPage;
@@ -252,8 +256,8 @@ export default {
       var startDate = new Date();
       startDate.setTime(startDate.getTime() - 3600 * 1000 * 24 * 30);
       if (this.rangeDate) {
-        startDate = moment(self.rangeDate[0]).format("YYYY-MM-DD");
-        endDate = moment(self.rangeDate[1]).format("YYYY-MM-DD");
+        startDate = moment(this.rangeDate[0]).format("YYYY-MM-DD");
+        endDate = moment(this.rangeDate[1]).format("YYYY-MM-DD");
       } else {
         startDate = moment(startDate).format("YYYY-MM-DD");
         endDate = moment(endDate).format("YYYY-MM-DD");
@@ -272,7 +276,7 @@ export default {
               if (index < perPage) {
                 self.pageOfItems.push({
                   id: index + 1,
-                  NGAY_TAO: report.NGAY_TAO,
+                  NGAY_BAT_DAU: report.NGAY_BAT_DAU,
                   TEN_KHACH_HANG: report.TEN_KHACH_HANG,
                   TEN_DO_UU_TIEN: report.TEN_DO_UU_TIEN,
                   THUC_HIEN: report.THUC_HIEN,
@@ -283,73 +287,7 @@ export default {
             });
             self.rows = Math.round(response.data.data.length / perPage) + 1;
             self.listPage = response.data.data;
-          } else {
-            var err = removeSpace(response.data.message.toUpperCase());
-            Vue.$toast.error(
-              this.$i18n.te(err) ? this.$i18n.t(err) : response.data.message
-            );
-          }
-        })
-        .catch((error) => {
-          var err = removeSpace(error.message.toUpperCase());
-          Vue.$toast.error(
-            this.$i18n.te(err) ? this.$i18n.t(err) : error.message
-          );
-        });
-    },
-    getReportTong() {
-      var self = this;
-      this.reportList = [];
-      var endDate = new Date();
-      var startDate = new Date();
-      startDate.setTime(startDate.getTime() - 3600 * 1000 * 24 * 30);
-      if (this.rangeDate) {
-        startDate = moment(self.rangeDate[0]).format("YYYY-MM-DD");
-        endDate = moment(self.rangeDate[1]).format("YYYY-MM-DD");
-      } else {
-        startDate = moment(startDate).format("YYYY-MM-DD");
-        endDate = moment(endDate).format("YYYY-MM-DD");
-      }
-      var data = {
-        v_FROM_DATE: startDate,
-        v_TO_DATE: endDate,
-      };
-      reportResponsitories
-        .getReportTongYeuCau(data)
-        .then(function (response) {
-          if (response && response.data.success) {
-            self.reportList = response.data.data;
-          } else {
-            var err = removeSpace(response.data.message.toUpperCase());
-            Vue.$toast.error(
-              this.$i18n.te(err) ? this.$i18n.t(err) : response.data.message
-            );
-          }
-        })
-        .catch((error) => {
-          var err = removeSpace(error.message.toUpperCase());
-          Vue.$toast.error(
-            this.$i18n.te(err) ? this.$i18n.t(err) : error.message
-          );
-        });
-    },
-    getReportSLA() {
-      var self = this;
-      this.reportList = [];
-      var v_ID_NHOM_GIAI_DOAN = 18;
-      var currentTime = new Date();
-      var v_YEAR = moment(currentTime).format("YYYY");
-      var v_MONTH = moment(currentTime).format("MM");
-      var data = {
-        v_ID_NHOM_GIAI_DOAN,
-        v_YEAR,
-        v_MONTH,
-      };
-      reportResponsitories
-        .getListReportSLA(data)
-        .then(function (response) {
-          if (response && response.data.success) {
-            self.reportList = response.data.data;
+            $(".loading").hide(100);
           } else {
             var err = removeSpace(response.data.message.toUpperCase());
             Vue.$toast.error(
@@ -393,5 +331,5 @@ export default {
 };
 </script>
 <style scoped>
-@import url(./home.css);
+@import url(./reportDasboard.css);
 </style>
