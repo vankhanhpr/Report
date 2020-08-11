@@ -3,7 +3,7 @@
     <div class="k wf main-container">
       <div class="k wf card">
         <div class="k wf card-title">
-          <span>{{ $t("home.REQUEST_LIST").toUpperCase() }}</span>
+          <span>{{ $t("common.OBSERVATION").toUpperCase() }}</span>
         </div>
 
         <div class="k wf flex-row">
@@ -14,17 +14,14 @@
             </tr>
           </div>
 
-          <div class="k part">
-            <div class="demonstration">{{ $t("home.DATE_TO_DATE") }}</div>
+          <div class="k part flex-row">
+            <div class="demonstration">{{ $t("home.PICK_MONTH") }}</div>
             <el-date-picker
               class="date-time-picker"
-              v-model="rangeDate"
-              @change="getDasboard(rangeDate)"
-              type="datetimerange"
-              :picker-options="pickerOptions"
-              range-separator="-"
-              v-bind:start-placeholder="this.$i18n.t(startDate)"
-              v-bind:end-placeholder="this.$i18n.t(endDate)"
+              v-model="month"
+              @change="getReportSLA(month)"
+              type="month"
+              v-bind:placeholder="this.$i18n.t(pickMonth)"
               align="right"
             ></el-date-picker>
           </div>
@@ -33,21 +30,19 @@
         <div class="k wf card-container">
           <table class="table">
             <tr class="table-title">
-              <th class="table-title">{{title.STT}}</th>
+              <th class="table-title">{{ title.STT }}</th>
               <th class="table-title">{{ this.$i18n.t(title.TEN_KHACH_HANG) }}</th>
               <th class="table-title">{{ this.$i18n.t(title.TEN_DO_UU_TIEN) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.THUC_HIEN) }}</th>
               <th class="table-title">{{ this.$i18n.t(title.GIAI_DOAN_HIEN_TAI) }}</th>
-              <th class="table-title">{{ this.$i18n.t(title.DON_VI_THUC_HIEN) }}</th>
+              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU) }}</th>
+              <th class="table-title">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC) }}</th>
+              <th class="table-title">{{ this.$i18n.t(title.SLA_CHUAN) }}</th>
+              <th class="table-title">{{ title.SLA }}</th>
+              <th class="table-title">{{ this.$i18n.t(title.NGUOI_THUC_HIEN) }}</th>
             </tr>
-            <!-- <tr class="table-title">
-              <th class="table-title">
-                <el-input
-                  v-bind:placeholder="this.$i18n.t(title.NGAY_TAO)"
-                  v-model="inputDate"
-                  clearable
-                ></el-input>
-              </th>
+            <tr class="table-title">
+              <th class="table-title"></th>
+
               <th class="table-title">
                 <el-input
                   v-bind:placeholder="this.$i18n.t(title.TEN_KHACH_HANG)"
@@ -55,7 +50,6 @@
                   clearable
                 ></el-input>
               </th>
-              <th class="table-title"></th>
               <th class="table-title"></th>
               <th class="table-title">
                 <el-select
@@ -72,35 +66,20 @@
                 </el-select>
               </th>
               <th class="table-title"></th>
-            </tr>-->
+              <th class="table-title"></th>
+              <th class="table-title"></th>
+              <th class="table-title"></th>
+              <th class="table-title"></th>
+            </tr>
             <tr v-for="(item, index) in pageOfItems" :key="index">
-              <th v-if="item.TEN_DO_UU_TIEN === 'cao'" v-bind:class="{ high: isHigh }">{{ item.id }}</th>
-              <th v-else-if="item.TEN_DO_UU_TIEN !== 'cao'">{{ item.id }}</th>
-              <th
-                v-if="item.TEN_DO_UU_TIEN === 'cao'"
-                v-bind:class="{ high: isHigh }"
-              >{{ item.TEN_KHACH_HANG }}</th>
-              <th v-else-if="item.TEN_DO_UU_TIEN !== 'cao'">{{ item.TEN_KHACH_HANG }}</th>
-              <th
-                v-if="item.TEN_DO_UU_TIEN === 'cao'"
-                v-bind:class="{ high: isHigh }"
-              >{{ item.TEN_DO_UU_TIEN }}</th>
-              <th v-else-if="item.TEN_DO_UU_TIEN !== 'cao'">{{ item.TEN_DO_UU_TIEN }}</th>
-              <th
-                v-if="item.TEN_DO_UU_TIEN === 'cao'"
-                v-bind:class="{ high: isHigh }"
-              >{{ item.THUC_HIEN }}</th>
-              <th v-else-if="item.TEN_DO_UU_TIEN !== 'cao'">{{ item.THUC_HIEN }}</th>
-              <th
-                v-if="item.TEN_DO_UU_TIEN === 'cao'"
-                v-bind:class="{ high: isHigh }"
-              >{{ item.GIAI_DOAN_HIEN_TAI }}</th>
-              <th v-else-if="item.TEN_DO_UU_TIEN !== 'cao'">{{ item.GIAI_DOAN_HIEN_TAI }}</th>
-              <th
-                v-if="item.TEN_DO_UU_TIEN === 'cao'"
-                v-bind:class="{ high: isHigh }"
-              >{{ item.DON_VI_THUC_HIEN }}</th>
-              <th v-else-if="item.TEN_DO_UU_TIEN !== 'cao'">{{ item.DON_VI_THUC_HIEN }}</th>
+              <th>{{ item.id }}</th>
+              <th>{{ item.TEN_KHACH_HANG }}</th>
+              <th>{{ item.TEN_DO_UU_TIEN }}</th>
+              <th>{{ item.GIAI_DOAN_HIEN_TAI }}</th>
+              <th>{{ item.THOI_GIAN_BAT_DAU_KSYC }}</th>
+              <th>{{ item.THOI_GIAN_KET_THUC_KSYC }}</th>
+              <th>{{ item.THOI_GIAN_SLA_KSYC_CHITIET }}</th>
+              <th>{{ item.SLA_KSYC }}</th>
             </tr>
           </table>
         </div>
@@ -112,8 +91,8 @@
           @currentPage="getCurrentPage"
         ></pagination>
       </div>
+      <div class="loading"></div>
     </div>
-    <div class="loading"></div>
   </div>
 </template>
 <script>
@@ -126,7 +105,7 @@ const reportResponsitories = responsitories.get("report");
 import pagination from "../pagination/pagination";
 
 export default {
-  name: "ReportDasboard",
+  name: "Observation",
   data() {
     return {
       sum: [
@@ -166,48 +145,18 @@ export default {
       ],
       title: {
         STT: "STT",
-        NGAY_BAT_DAU: "detail.DATE_CREATED",
         TEN_KHACH_HANG: "detail.CUSTOMER",
         TEN_DO_UU_TIEN: "detail.PRIORITY",
-        THUC_HIEN: "detail.STATUS",
         GIAI_DOAN_HIEN_TAI: "detail.CURRENT_STAGE",
-        DON_VI_THUC_HIEN: "detail.EXECUTION_UNIT",
+        THOI_GIAN_BAT_DAU: "home.START_DATE",
+        THOI_GIAN_KET_THUC: "home.END_DATE",
+        SLA_CHUAN: "detail.SLA_CHUAN",
+        SLA: "SLA",
+        NGUOI_THUC_HIEN: "detail.NGUOI_THUC_HIEN",
       },
       isHigh: true,
-      pickerOptions: {
-        shortcuts: [
-          {
-            text: this.$i18n.t("home.LAST_WEEK"),
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-              picker.$emit("pick", [start, end]);
-            },
-          },
-          {
-            text: this.$i18n.t("home.LAST_MONTH"),
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-              picker.$emit("pick", [start, end]);
-            },
-          },
-          {
-            text: this.$i18n.t("home.LAST_3_MONTHS"),
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-              picker.$emit("pick", [start, end]);
-            },
-          },
-        ],
-      },
-      rangeDate: "",
-      startDate: "home.START_DATE",
-      endDate: "home.END_DATE",
+      month: new Date(),
+      pickMonth: "home.PICK_MONTH",
       inputDate: "",
       inputCustomer: "",
       select_stage: "home.SELECT_STAGE",
@@ -238,49 +187,81 @@ export default {
     };
   },
   methods: {
-    getDasboard() {
+    // showLoading() {
+    //   $(".loading").show(100);
+    // },
+    // hideLoading() {
+    //   $(".loading").hide(100);
+    // },
+    async getReportSLA() {
       $(".loading").show(100);
       var self = this;
       this.reportList = [];
       var perPage = this.perPage;
-      var endDate = new Date();
-      var startDate = new Date();
-      startDate.setTime(startDate.getTime() - 3600 * 1000 * 24 * 30);
-      if (this.rangeDate) {
-        startDate = moment(this.rangeDate[0]).format("YYYY-MM-DD");
-        endDate = moment(this.rangeDate[1]).format("YYYY-MM-DD");
-      } else {
-        startDate = moment(startDate).format("YYYY-MM-DD");
-        endDate = moment(endDate).format("YYYY-MM-DD");
-      }
+      var v_ID_NHOM_GIAI_DOAN = 18;
+      var v_YEAR = Number(moment(this.month).format("YYYY"));
+      var v_MONTH = Number(moment(this.month).format("MM"));
       var data = {
-        v_FROM_DATE: startDate,
-        v_TO_DATE: endDate,
+        v_ID_NHOM_GIAI_DOAN,
+        v_YEAR,
+        v_MONTH,
       };
-      reportResponsitories
-        .getReportDasboard(data)
+      await reportResponsitories
+        .getListReportSLA(data)
         .then(function (response) {
           if (response && response.data.success) {
             self.pageOfItems = [];
             response.data.data.forEach((report, index) => {
               self.reportList.push({
                 id: index + 1,
-                NGAY_BAT_DAU: report.NGAY_BAT_DAU,
+                NGAY_TAO: report.NGAY_TAO,
                 TEN_KHACH_HANG: report.TEN_KHACH_HANG,
                 TEN_DO_UU_TIEN: report.TEN_DO_UU_TIEN,
-                THUC_HIEN: report.THUC_HIEN,
                 GIAI_DOAN_HIEN_TAI: report.GIAI_DOAN_HIEN_TAI,
-                DON_VI_THUC_HIEN: report.DON_VI_THUC_HIEN,
+                THOI_GIAN_BAT_DAU_KSYC: report.THOI_GIAN_BAT_DAU_KSYC,
+                THOI_GIAN_KET_THUC_KSYC: report.THOI_GIAN_KET_THUC_KSYC,
+                SLA_KSYC: report.SLA_KSYC,
+                THOI_GIAN_SLA_KSYC_CHITIET: report.THOI_GIAN_SLA_KSYC_CHITIET,
+                DANH_GIA_SLA_KSYC: report.DANH_GIA_SLA_KSYC,
+                THOI_GIAN_BAT_DAU_TKHD: report.THOI_GIAN_BAT_DAU_TKHD,
+                THOI_GIAN_KET_THUC_TKHD: report.THOI_GIAN_KET_THUC_TKHD,
+                SLA_TKHD: report.SLA_TKHD,
+                THOI_GIAN_SLA_TKHD_CHITIET: report.THOI_GIAN_SLA_TKHD_CHITIET,
+                DANH_GIA_SLA_TKHD: report.DANH_GIA_SLA_TKHD,
+                THOI_GIAN_BAT_DAU_DWST: report.THOI_GIAN_BAT_DAU_DWST,
+                THOI_GIAN_KET_THUC_DWST: report.THOI_GIAN_KET_THUC_DWST,
+                SLA_DWST: report.SLA_DWST,
+                DANH_GIA_SLA_DWST: report.DANH_GIA_SLA_DWST,
+                THOI_GIAN_BAT_DAU_DWSCT: report.THOI_GIAN_BAT_DAU_DWSCT,
+                THOI_GIAN_KET_THUC_DWSCT: report.THOI_GIAN_KET_THUC_DWSCT,
+                SLA_DWSCT: report.SLA_DWSCT,
+                DANH_GIA_SLA_DWSCT: report.DANH_GIA_SLA_DWSCT,
               });
               if (index < perPage) {
                 self.pageOfItems.push({
                   id: index + 1,
-                  NGAY_BAT_DAU: report.NGAY_BAT_DAU,
+                  NGAY_TAO: report.NGAY_TAO,
                   TEN_KHACH_HANG: report.TEN_KHACH_HANG,
                   TEN_DO_UU_TIEN: report.TEN_DO_UU_TIEN,
-                  THUC_HIEN: report.THUC_HIEN,
                   GIAI_DOAN_HIEN_TAI: report.GIAI_DOAN_HIEN_TAI,
-                  DON_VI_THUC_HIEN: report.DON_VI_THUC_HIEN,
+                  THOI_GIAN_BAT_DAU_KSYC: report.THOI_GIAN_BAT_DAU_KSYC,
+                  THOI_GIAN_KET_THUC_KSYC: report.THOI_GIAN_KET_THUC_KSYC,
+                  SLA_KSYC: report.SLA_KSYC,
+                  THOI_GIAN_SLA_KSYC_CHITIET: report.THOI_GIAN_SLA_KSYC_CHITIET,
+                  DANH_GIA_SLA_KSYC: report.DANH_GIA_SLA_KSYC,
+                  THOI_GIAN_BAT_DAU_TKHD: report.THOI_GIAN_BAT_DAU_TKHD,
+                  THOI_GIAN_KET_THUC_TKHD: report.THOI_GIAN_KET_THUC_TKHD,
+                  SLA_TKHD: report.SLA_TKHD,
+                  THOI_GIAN_SLA_TKHD_CHITIET: report.THOI_GIAN_SLA_TKHD_CHITIET,
+                  DANH_GIA_SLA_TKHD: report.DANH_GIA_SLA_TKHD,
+                  THOI_GIAN_BAT_DAU_DWST: report.THOI_GIAN_BAT_DAU_DWST,
+                  THOI_GIAN_KET_THUC_DWST: report.THOI_GIAN_KET_THUC_DWST,
+                  SLA_DWST: report.SLA_DWST,
+                  DANH_GIA_SLA_DWST: report.DANH_GIA_SLA_DWST,
+                  THOI_GIAN_BAT_DAU_DWSCT: report.THOI_GIAN_BAT_DAU_DWSCT,
+                  THOI_GIAN_KET_THUC_DWSCT: report.THOI_GIAN_KET_THUC_DWSCT,
+                  SLA_DWSCT: report.SLA_DWSCT,
+                  DANH_GIA_SLA_DWSCT: report.DANH_GIA_SLA_DWSCT,
                 });
               }
             });
@@ -289,6 +270,9 @@ export default {
             $(".loading").hide(100);
           } else {
             var err = removeSpace(response.data.message.toUpperCase());
+            console.log(
+              this.$i18n.te(err) ? this.$i18n.t(err) : response.data.message
+            );
             Vue.$toast.error(
               this.$i18n.te(err) ? this.$i18n.t(err) : response.data.message
             );
@@ -310,7 +294,7 @@ export default {
     },
   },
   created() {
-    this.getDasboard();
+    this.getReportSLA();
   },
   components: {
     pagination,
@@ -332,5 +316,5 @@ export default {
 };
 </script>
 <style scoped>
-@import url(./reportDasboard.css);
+@import url(./observation.css);
 </style>

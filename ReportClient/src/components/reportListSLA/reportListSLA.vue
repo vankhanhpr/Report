@@ -1,9 +1,5 @@
 <template>
   <div class="k main-form">
-    <!-- <div class="k tab-head">
-      <span class="k text-header">{{ $t("common.REPORT_LIST_SLA") }}</span>
-    </div>-->
-
     <div class="k wf main-container">
       <div class="k wf card">
         <div class="k wf card-title">
@@ -34,9 +30,11 @@
         <div class="k wf card-container">
           <table class="table">
             <tr class="table-title">
-              <th class="table-title">{{ this.$i18n.t(title.NGAY_TAO) }}</th>
+              <th class="table-title">{{ title.STT}}</th>
               <th class="table-title">{{ this.$i18n.t(title.TEN_KHACH_HANG) }}</th>
+              <th class="table-title">{{ this.$i18n.t(title.NGAY_TAO) }}</th>
               <th class="table-title">{{ this.$i18n.t(title.TEN_DO_UU_TIEN) }}</th>
+              <th class="table-title">{{ this.$i18n.t(title.GIAI_DOAN_HIEN_TAI) }}</th>
               <th class="color-gold">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU_KSYC) }}</th>
               <th class="color-gold">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC_KSYC) }}</th>
               <th class="color-gold">{{ this.$i18n.t(title.SLA_KSYC) }}</th>
@@ -50,6 +48,7 @@
               <th class="color-green">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU_DWST) }}</th>
               <th class="color-green">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC_DWST) }}</th>
               <th class="color-green">{{ this.$i18n.t(title.SLA_DWST) }}</th>
+              <th class="color-green">{{ this.$i18n.t(title.THOI_GIAN_SLA_DWST_CHITIET) }}</th>
               <th class="color-green">{{ this.$i18n.t(title.DANH_GIA_SLA_DWST) }}</th>
               <th class="color-blue">{{ this.$i18n.t(title.THOI_GIAN_BAT_DAU_DWSCT) }}</th>
               <th class="color-blue">{{ this.$i18n.t(title.THOI_GIAN_KET_THUC_DWSCT) }}</th>
@@ -90,9 +89,11 @@
               <th class="table-title"></th>
             </tr>-->
             <tr v-for="(item, index) in pageOfItems" :key="index">
-              <th>{{ item.NGAY_TAO }}</th>
+              <th>{{ item.id }}</th>
               <th>{{ item.TEN_KHACH_HANG }}</th>
+              <th>{{ item.NGAY_TAO }}</th>
               <th>{{ item.TEN_DO_UU_TIEN }}</th>
+              <th>{{ item.GIAI_DOAN_HIEN_TAI }}</th>
               <th>{{ item.THOI_GIAN_BAT_DAU_KSYC }}</th>
               <th>{{ item.THOI_GIAN_KET_THUC_KSYC }}</th>
               <th>{{ item.SLA_KSYC }}</th>
@@ -122,6 +123,7 @@
               <th>{{ item.THOI_GIAN_BAT_DAU_DWSCT }}</th>
               <th>{{ item.THOI_GIAN_KET_THUC_DWSCT }}</th>
               <th>{{ item.SLA_DWSCT }}</th>
+              <th>{{ item.THOI_GIAN_SLA_DWST_CHITIET }}</th>
               <th
                 v-if="item.DANH_GIA_SLA_DWSCT === 'Trễ hạn'"
                 v-bind:class="{high: true}"
@@ -191,9 +193,11 @@ export default {
         },
       ],
       title: {
+        STT: "STT",
         NGAY_TAO: "detail.DATE_CREATED",
         TEN_KHACH_HANG: "detail.CUSTOMER",
         TEN_DO_UU_TIEN: "detail.PRIORITY",
+        GIAI_DOAN_HIEN_TAI: "detail.CURRENT_STAGE",
         THOI_GIAN_BAT_DAU_KSYC: "detail.THOI_GIAN_BAT_DAU_KSYC",
         THOI_GIAN_KET_THUC_KSYC: "detail.THOI_GIAN_KET_THUC_KSYC",
         SLA_KSYC: "detail.SLA_KSYC",
@@ -207,6 +211,7 @@ export default {
         THOI_GIAN_BAT_DAU_DWST: "detail.THOI_GIAN_BAT_DAU_DWST",
         THOI_GIAN_KET_THUC_DWST: "detail.THOI_GIAN_KET_THUC_DWST",
         SLA_DWST: "detail.SLA_DWST",
+        THOI_GIAN_SLA_DWST_CHITIET: "detail.THOI_GIAN_SLA_DWST_CHITIET",
         DANH_GIA_SLA_DWST: "detail.DANH_GIA_SLA_DWST",
         THOI_GIAN_BAT_DAU_DWSCT: "detail.THOI_GIAN_BAT_DAU_DWSCT",
         THOI_GIAN_KET_THUC_DWSCT: "detail.THOI_GIAN_KET_THUC_DWSCT",
@@ -241,7 +246,7 @@ export default {
       reportList: [],
       pageOfItems: [],
       rows: 10000,
-      perPage: 10,
+      perPage: 20,
       currentPage: 1,
     };
   },
@@ -269,15 +274,42 @@ export default {
         .getListReportSLA(data)
         .then(function (response) {
           if (response && response.data.success) {
-            self.reportList = response.data.data;
+            self.reportList = [];
             self.pageOfItems = [];
             response.data.data.forEach((report, index) => {
+              self.reportList.push({
+                id: index + 1,
+                NGAY_TAO: report.NGAY_TAO,
+                TEN_KHACH_HANG: report.TEN_KHACH_HANG,
+                TEN_DO_UU_TIEN: report.TEN_DO_UU_TIEN,
+                GIAI_DOAN_HIEN_TAI: report.GIAI_DOAN_HIEN_TAI,
+                THOI_GIAN_BAT_DAU_KSYC: report.THOI_GIAN_BAT_DAU_KSYC,
+                THOI_GIAN_KET_THUC_KSYC: report.THOI_GIAN_KET_THUC_KSYC,
+                SLA_KSYC: report.SLA_KSYC,
+                THOI_GIAN_SLA_KSYC_CHITIET: report.THOI_GIAN_SLA_KSYC_CHITIET,
+                DANH_GIA_SLA_KSYC: report.DANH_GIA_SLA_KSYC,
+                THOI_GIAN_BAT_DAU_TKHD: report.THOI_GIAN_BAT_DAU_TKHD,
+                THOI_GIAN_KET_THUC_TKHD: report.THOI_GIAN_KET_THUC_TKHD,
+                SLA_TKHD: report.SLA_TKHD,
+                THOI_GIAN_SLA_TKHD_CHITIET: report.THOI_GIAN_SLA_TKHD_CHITIET,
+                DANH_GIA_SLA_TKHD: report.DANH_GIA_SLA_TKHD,
+                THOI_GIAN_BAT_DAU_DWST: report.THOI_GIAN_BAT_DAU_DWST,
+                THOI_GIAN_KET_THUC_DWST: report.THOI_GIAN_KET_THUC_DWST,
+                SLA_DWST: report.SLA_DWST,
+                THOI_GIAN_SLA_DWST_CHITIET: report.THOI_GIAN_SLA_DWST_CHITIET,
+                DANH_GIA_SLA_DWST: report.DANH_GIA_SLA_DWST,
+                THOI_GIAN_BAT_DAU_DWSCT: report.THOI_GIAN_BAT_DAU_DWSCT,
+                THOI_GIAN_KET_THUC_DWSCT: report.THOI_GIAN_KET_THUC_DWSCT,
+                SLA_DWSCT: report.SLA_DWSCT,
+                DANH_GIA_SLA_DWSCT: report.DANH_GIA_SLA_DWSCT,
+              });
               if (index < perPage) {
                 self.pageOfItems.push({
                   id: index + 1,
                   NGAY_TAO: report.NGAY_TAO,
                   TEN_KHACH_HANG: report.TEN_KHACH_HANG,
                   TEN_DO_UU_TIEN: report.TEN_DO_UU_TIEN,
+                  GIAI_DOAN_HIEN_TAI: report.GIAI_DOAN_HIEN_TAI,
                   THOI_GIAN_BAT_DAU_KSYC: report.THOI_GIAN_BAT_DAU_KSYC,
                   THOI_GIAN_KET_THUC_KSYC: report.THOI_GIAN_KET_THUC_KSYC,
                   SLA_KSYC: report.SLA_KSYC,
@@ -291,6 +323,7 @@ export default {
                   THOI_GIAN_BAT_DAU_DWST: report.THOI_GIAN_BAT_DAU_DWST,
                   THOI_GIAN_KET_THUC_DWST: report.THOI_GIAN_KET_THUC_DWST,
                   SLA_DWST: report.SLA_DWST,
+                  THOI_GIAN_SLA_DWST_CHITIET: report.THOI_GIAN_SLA_DWST_CHITIET,
                   DANH_GIA_SLA_DWST: report.DANH_GIA_SLA_DWST,
                   THOI_GIAN_BAT_DAU_DWSCT: report.THOI_GIAN_BAT_DAU_DWSCT,
                   THOI_GIAN_KET_THUC_DWSCT: report.THOI_GIAN_KET_THUC_DWSCT,
@@ -304,6 +337,9 @@ export default {
             $(".loading").hide(100);
           } else {
             var err = removeSpace(response.data.message.toUpperCase());
+            console.log(
+              this.$i18n.te(err) ? this.$i18n.t(err) : response.data.message
+            );
             Vue.$toast.error(
               this.$i18n.te(err) ? this.$i18n.t(err) : response.data.message
             );

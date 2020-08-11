@@ -6,7 +6,8 @@
     "CNTT_CENTER": "TRUNG TÂM CÔNG NGHỆ THÔNG TIN",
     "HOME": "Trang chủ",
     "USER": "Người dùng",
-    "REPORT_LIST_SLA": "Danh sách SLA"
+    "OBSERVATION": "Giám sát yêu cầu",
+    "REPORT_LIST_SLA": "Thống kê danh sách SLA"
   },
   "login": {
     "TITLE": "Đăng nhập vào website",
@@ -38,8 +39,10 @@
     "PRIORITY": "Độ ưu tiên",
     "STATUS": "Trạng thái",
     "CURRENT_STAGE": "Giai đoạn hiện tại",
+    "NGUOI_THUC_HIEN": "Người thực hiện",
     "EXECUTION_UNIT": "Đơn vị thực hiện",
     "DESCRIPTION": "Ghi chú",
+    "SLA_CHUAN": "SLA chuẩn",
     "THOI_GIAN_BAT_DAU_KSYC": "Thời gian bắt đầu KSYC",
     "THOI_GIAN_KET_THUC_KSYC": "Thời gian kết thúc KSYC",
     "SLA_KSYC": "SLA KSYC",
@@ -53,6 +56,7 @@
     "THOI_GIAN_BAT_DAU_DWST": "Thời gian bắt đầu DWST",
     "THOI_GIAN_KET_THUC_DWST": "Thời gian kết thúc DWST",
     "SLA_DWST": "SLA DWST",
+    "THOI_GIAN_SLA_DWST_CHITIET": "SLA DWST chi tiết",
     "DANH_GIA_SLA_DWST": "Đánh giá DWST",
     "THOI_GIAN_BAT_DAU_DWSCT": "Thời gian bắt đầu DWSCT",
     "THOI_GIAN_KET_THUC_DWSCT": "Thời gian kết thúc DWSCT",

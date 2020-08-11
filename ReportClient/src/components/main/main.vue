@@ -43,6 +43,10 @@
           @click="selectComponent = 'reportDasboardComponent'"
         >{{ $t("common.HOME") }}</a>
         <a
+          href="#observation"
+          @click="selectComponent = 'observationComponent'"
+        >{{ $t("common.OBSERVATION") }}</a>
+        <a
           href="#reportListSLA"
           @click="selectComponent = 'reportListSLAComponent'"
         >{{ $t("common.REPORT_LIST_SLA") }}</a>
@@ -93,6 +97,7 @@ import user from "../user/user";
 import login from "../login/login";
 import reportDasboard from "../reportDasboard/reportDasboard";
 import reportListSLA from "../reportListSLA/reportListSLA";
+import observation from "../observation/observation";
 import reponsitoryfactory from "../../service/factory/reponsitoryfactory";
 const userReponsitory = reponsitoryfactory.get("user");
 
@@ -194,6 +199,7 @@ export default {
     userComponent: user,
     reportDasboardComponent: reportDasboard,
     reportListSLAComponent: reportListSLA,
+    observationComponent: observation,
   },
 };
 </script>

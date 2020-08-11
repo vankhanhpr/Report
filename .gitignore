@@ -1,6 +1,8 @@
 .vs/
 ModelClass/bin/
 ModelClass/obj/
-Report/obj/
-Report/bin/
+ModelData/bin/
+ModelData/obj/
+ReportApi/bin/
+ReportApi/obj/
 ReportClient/node_modules/

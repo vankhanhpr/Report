@@ -1,34 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "E:\\vnpt\\DA\\DA_qlyc\\Report\\ModelData\\ModelData.csproj": {}
+    "D:\\vnpt\\Report\\ModelData\\ModelData.csproj": {}
   },
   "projects": {
-    "E:\\vnpt\\DA\\DA_qlyc\\Report\\ModelClass\\ModelClass.csproj": {
+    "D:\\vnpt\\Report\\ModelClass\\ModelClass.csproj": {
       "restore": {
-        "projectUniqueName": "E:\\vnpt\\DA\\DA_qlyc\\Report\\ModelClass\\ModelClass.csproj",
+        "projectUniqueName": "D:\\vnpt\\Report\\ModelClass\\ModelClass.csproj",
         "projectName": "ModelClass",
-        "projectPath": "E:\\vnpt\\DA\\DA_qlyc\\Report\\ModelClass\\ModelClass.csproj"
+        "projectPath": "D:\\vnpt\\Report\\ModelClass\\ModelClass.csproj"
       },
       "frameworks": {
         "net461": {}
       }
     },
-    "E:\\vnpt\\DA\\DA_qlyc\\Report\\ModelData\\ModelData.csproj": {
+    "D:\\vnpt\\Report\\ModelData\\ModelData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\vnpt\\DA\\DA_qlyc\\Report\\ModelData\\ModelData.csproj",
+        "projectUniqueName": "D:\\vnpt\\Report\\ModelData\\ModelData.csproj",
         "projectName": "ModelData",
-        "projectPath": "E:\\vnpt\\DA\\DA_qlyc\\Report\\ModelData\\ModelData.csproj",
+        "projectPath": "D:\\vnpt\\Report\\ModelData\\ModelData.csproj",
         "packagesPath": "C:\\Users\\minhtri.hcm\\.nuget\\packages\\",
-        "outputPath": "E:\\vnpt\\DA\\DA_qlyc\\Report\\ModelData\\obj\\",
+        "outputPath": "D:\\vnpt\\Report\\ModelData\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\minhtri.hcm\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -40,8 +42,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "E:\\vnpt\\DA\\DA_qlyc\\Report\\ModelClass\\ModelClass.csproj": {
-                "projectPath": "E:\\vnpt\\DA\\DA_qlyc\\Report\\ModelClass\\ModelClass.csproj"
+              "D:\\vnpt\\Report\\ModelClass\\ModelClass.csproj": {
+                "projectPath": "D:\\vnpt\\Report\\ModelClass\\ModelClass.csproj"
               }
             }
           }
@@ -88,7 +90,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
